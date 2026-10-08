@@ -1,7 +1,7 @@
 library(tidyverse)
 
 # Load class survey data
-heights_cm_df <- read.csv("survey_data/heights_cm.csv")
+heights_cm_df <- read.csv("survey_data/heights-cms.csv")
 
 heights_truth_df <- read.csv("survey_data/heights_truth.csv")
 
