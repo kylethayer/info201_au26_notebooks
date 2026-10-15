@@ -1,0 +1,36 @@
+---
+title: "National Park Demo 1"
+author: "Kyle Thayer"
+format:
+  html:
+   embed-resources: true
+---
+
+## Load libraries
+
+```{r}
+#| warning: false
+
+library(dplyr)
+```
+
+## Info on national parks
+
+```{r}
+# Load a dataset of the top 5 national parks by visits
+np_top_5_df <- read.csv("https://raw.githubusercontent.com/melaniewalsh/Neat-Datasets/refs/heads/main/2020-National-Park-Visits-By-State-Top5.csv")
+
+number_parks_in_dataset <- 
+  np_top_5_df |> 
+  nrow()
+
+avg_visitors <- 
+  np_top_5_df |> 
+  pull(RecreationVisits) |>
+  mean() |>
+  round()
+
+```
+
+In this dataset, we have `r number_parks_in_dataset` National Parks. The average number of visits per park is `r avg_visitors`.
+

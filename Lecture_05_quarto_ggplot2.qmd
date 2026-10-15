@@ -1,0 +1,67 @@
+---
+title: "ggplot quarto demo"
+author: "Kyle Thayer"
+date: today
+format:
+  html:
+   embed-resources: true
+---
+## First a review of Markdown
+
+As a reminder, we can make text **bold** with two stars, or *italics* with one star.
+
+## Next I'll load my libraries so I can do stuff with ggplot2
+```{r}
+#| warnings: false
+library("ggplot2")
+
+# TODO: load file
+
+```
+
+## Now I'll include a ggplot2 graph
+Note: Each plot should be it's own code block
+
+```{r}
+# scatter plot with x and y
+ggplot(data = midwest) +
+  geom_point(mapping = aes(x = percollege, y = percadultpoverty))
+
+```
+
+```{r}
+# histogram
+ggplot(data = midwest) +
+  geom_histogram(
+    aes(x = poptotal), 
+    binwidth = 2000
+  )
+```
+
+
+
+
+```{r}
+ggplot(data = midwest) +
+  geom_point(
+    mapping = aes(
+      x = percollege, 
+      y = percadultpoverty,
+      color = state)
+  ) +
+  labs(
+    title = "Percent College Educated versus Poverty Rates", # plot title
+    x = "Percentage of College Educated Adults", # x-axis label
+    y = "Percentage of Adults Living in Poverty", # y-axis label
+    color = "State" # Legend label for the "color" property
+  )
+
+```
+
+## code in paragraphs
+Reminder on how to calculate values and put them in paragraphs
+```{r}
+num_counties = nrow(midwest)
+```
+
+There were `r num_counties` counties in our dataset.

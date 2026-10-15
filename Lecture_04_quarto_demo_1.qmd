@@ -1,0 +1,48 @@
+---
+title: "First Demo Quarto Doc"
+author: "Kyle Thayer"
+format:
+  html:
+   embed-resources: true
+editor: visual
+---
+
+## First section of my report 
+
+Here is a paragraph of text. I can make something *italics*. And I can make something **bold**.
+
+If I make a sentence on a new line without an extra space.
+It will be part of the same paragraph.
+
+## Second section of my report: code
+
+### Big blocks of code
+
+```{r}
+#| warning: false
+
+library(dplyr)
+seq(1, 10) |>
+  sum()
+```
+
+```{r}
+#| warning: false
+
+library(ggplot2)
+ggplot(airquality, aes(Temp, Ozone)) +
+  geom_point() +
+  geom_smooth(method = "loess")
+```
+
+
+### Demo code values in text
+```{r}
+num_students <- 197
+num_sections <- 8
+num_students_per_section <- num_students / num_sections
+```
+
+I can make a paragraph this values in it like this. There are `r num_students` students in this class with `r num_sections` sections. So there are `r num_students_per_section` students per section in this class.
+
+
